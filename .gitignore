@@ -1,0 +1,5 @@
+Raw_Data/
+Processed_Data/
+*.csv
+*.zip
+!data_sample/*.csv
