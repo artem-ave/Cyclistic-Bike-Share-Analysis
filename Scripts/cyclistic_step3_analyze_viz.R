@@ -1,18 +1,12 @@
-# ────────────────────────────────────────────────────────────────
-# STEP 3: Descriptive analysis and visualizations (English labels + correct day order)
-# ────────────────────────────────────────────────────────────────
-
 library(dplyr)
 library(lubridate)
 library(ggplot2)
 library(readr)
 library(scales)
 
-# Загружаем данные
 processed_file <- "/Users/artem/Desktop/Cyclistic_Analysis/Processed_Data/clean_sample_2025_2026.csv"
 trips <- read_csv(processed_file, show_col_types = FALSE)
 
-# Правильный европейский порядок: понедельник → воскресенье
 trips <- trips %>%
   mutate(
     day_of_week = factor(
@@ -27,7 +21,6 @@ cat("Loaded rows:", nrow(trips), "\n")
 cat("User type distribution (%):\n")
 print(round(prop.table(table(trips$member_casual)) * 100, 1))
 
-# 1. Основные статистики
 stats_summary <- trips %>%
   group_by(member_casual) %>%
   summarise(
@@ -42,7 +35,6 @@ stats_summary <- trips %>%
 cat("\nKey statistics by user type:\n")
 print(stats_summary)
 
-# 2. По дням недели
 rides_by_day <- trips %>%
   group_by(member_casual, day_of_week) %>%
   summarise(
@@ -51,7 +43,6 @@ rides_by_day <- trips %>%
     .groups        = "drop"
   )
 
-# График 1: Количество поездок по дням недели
 p1 <- ggplot(rides_by_day, aes(x = day_of_week, y = ride_count, fill = member_casual)) +
   geom_col(position = "dodge") +
   scale_fill_manual(values = c("casual" = "#FF7F0E", "member" = "#1F77B4")) +
@@ -67,7 +58,6 @@ p1 <- ggplot(rides_by_day, aes(x = day_of_week, y = ride_count, fill = member_ca
 ggsave("/Users/artem/Desktop/Cyclistic_Analysis/Visuals/rides_by_day_of_week.png", 
        p1, width = 10, height = 6, dpi = 150)
 
-# График 2: Средняя длительность по дням недели
 p2 <- ggplot(rides_by_day, aes(x = day_of_week, y = avg_duration, color = member_casual, group = member_casual)) +
   geom_line(linewidth = 1.2) +
   geom_point(size = 3) +
@@ -84,7 +74,6 @@ p2 <- ggplot(rides_by_day, aes(x = day_of_week, y = avg_duration, color = member
 ggsave("/Users/artem/Desktop/Cyclistic_Analysis/Visuals/avg_duration_by_day_of_week.png", 
        p2, width = 10, height = 6, dpi = 150)
 
-# 3. По часам дня (часы уже по порядку от 0 до 23)
 rides_by_hour <- trips %>%
   group_by(member_casual, hour_of_day) %>%
   summarise(ride_count = n(), .groups = "drop")
