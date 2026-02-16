@@ -33,7 +33,7 @@ What marketing strategies could help convert casual riders to members?
 
 ## How to Reproduce
 1. Download the 13 monthly CSV files from the official Divvy source:  
-   https://divvy-tripdata.s3.amazonaws.com/ (Feb 2025 – Jan 2026)
+   https://divvy-tripdata.s3.amazonaws.com/index.html (Feb 2025 – Jan 2026)
 2. Place downloaded CSVs in a local `Raw_Data/` folder
 3. Run the scripts in order:
    - `Scripts/cyclistic_step1_load_and_sample.R`
@@ -57,6 +57,5 @@ What marketing strategies could help convert casual riders to members?
 Detailed analysis, methodology and conclusions:  
 [Cyclistic_Report.md](Cyclistic_Report.md)
 
-(Deutsch: Diese Fallstudie demonstriert datengetriebene Marketing-Insights in der Mobilitätsbranche – ideal für Data Analyst Rollen in Deutschland.)
 
 Feel free to explore the code and visuals!
