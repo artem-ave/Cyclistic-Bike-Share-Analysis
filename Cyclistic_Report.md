@@ -2,16 +2,16 @@
 
 ## Business Task
 The director of marketing believes the company’s future success depends on maximizing annual memberships.  
-The task is to analyze historical trip data to understand how **annual members** and **casual riders** use Cyclistic bikes differently — and provide actionable insights to convert casual riders into members.
+The task is to analyze historical trip data to understand how annual members and casual riders use Cyclistic bikes differently and provide actionable insights to convert casual riders into members.
 
 ## Data Source
 - Public Divvy trip data (Lyft Bikes and Scooters, LLC)  
-- Period: February 2025 – January 2026 (13 monthly CSV files)  
-- Original size: ~5–6 million rows  
+- Period: February 2025 - January 2026 (13 monthly CSV files)  
+- Original size: ~5 - 6 million rows  
 - Analysis performed on ~7.5% random sample (~415,000 rides) for computational efficiency  
 - Key columns used: ride_id, started_at, ended_at, member_casual, rideable_type, etc.  
 - Privacy: No personally identifiable information (PII) — GDPR-compliant approach  
-- Source link: https://divvy-tripdata.s3.amazonaws.com/
+- Source link: https://divvy-tripdata.s3.amazonaws.com/index.html
 
 ## Methodology & Tools
 - **Data processing**: Random sampling, cleaning (remove invalid durations), feature engineering (ride_length_minutes, day_of_week, hour_of_day)  
