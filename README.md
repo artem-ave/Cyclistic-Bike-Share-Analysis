@@ -1,3 +1,7 @@
+![R](https://img.shields.io/badge/R-%23276DC3.svg?style=flat&logo=r&logoColor=white)
+![ggplot2](https://img.shields.io/badge/ggplot2-Used-blue?style=flat)
+![Google Data Analytics](https://img.shields.io/badge/Google-Data%20Analytics-orange?style=flat)
+
 # Cyclistic Bike-Share Analysis – Google Data Analytics Capstone Project
 
 This repository contains my capstone project for the **Google Data Analytics Professional Certificate**.  
